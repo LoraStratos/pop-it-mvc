@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="/pop-it-mvc/public/css/login.css">
 <div class="div">
     <form method="post" class="login_form">
         <h2>Вход</h2>

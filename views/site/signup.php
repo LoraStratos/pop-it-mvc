@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="/pop-it-mvc/public/css/signup.css">
 <div class="signup_div">
     <form method="post" class="signup_form">
         <h2>Добавление нового пользователя</h2>

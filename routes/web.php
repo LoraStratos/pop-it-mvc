@@ -8,3 +8,5 @@ Route::add(['GET', 'POST'], '/signup', [Controller\Admin::class, 'signup'])
     ->middleware('auth', 'role');
 Route::add(['GET', 'POST'], '/login', [Controller\Site::class, 'login']);
 Route::add('GET', '/logout', [Controller\Site::class, 'logout']);
+Route::add('GET', '/books', [Controller\Site::class, 'books']);
+Route::add('GET', '/readers', [Controller\Site::class, 'readers']);

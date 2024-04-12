@@ -6,9 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/pop-it-mvc/public/css/login.css">
     <link rel="stylesheet" href="/pop-it-mvc/public/css/main.css">
-    <link rel="stylesheet" href="/pop-it-mvc/public/css/signup.css">
     <title>Библиотека</title>
 </head>
 <body>
@@ -22,6 +20,8 @@
                 <?php
                     if (!app()->auth::checkRole()):
                 ?>
+                    <a href="<?= app()->route->getUrl('/books') ?>">Книги</a>
+                    <a href="<?= app()->route->getUrl('/readers') ?>">Читатели</a>
                     <a href="<?= app()->route->getUrl('/logout') ?>">Выйти</a>
                 <?php else: ?>
                     <a href="<?= app()->route->getUrl('/signup') ?>">Добавить пользователя</a>

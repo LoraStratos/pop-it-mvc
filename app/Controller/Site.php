@@ -24,7 +24,7 @@ class Site
 
     public function hello(): string
     {
-        return new View('site.hello', ['message' => 'Добро пожаловать!']);
+        return new View('site.hello', ['message' => 'Добро пожаловать в библиотеку!']);
     }
 
     public function login(Request $request): string
@@ -46,5 +46,12 @@ class Site
         Auth::logout();
         app()->route->redirect('/hello');
     }
-
+    public function books(): string
+    {
+        return new View('site.books');
+    }
+    public function readers(): string
+    {
+        return new View('site.readers');
+    }
 }

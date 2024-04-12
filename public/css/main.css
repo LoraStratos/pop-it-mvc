@@ -10,7 +10,7 @@ main {
 
 main > div:nth-child(2){
     width: 1000px;
-    margin-top: 30px
+    margin-top: 30px;
 }
 
 .nav {
