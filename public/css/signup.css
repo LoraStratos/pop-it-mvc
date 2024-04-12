@@ -1,0 +1,54 @@
+.signup_form > h2 {
+    color: #d8831b;
+}
+
+.signup_form {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.signup_form > div {
+    width: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.signup_form > div > p {
+    color: #d8831b;
+    font-size: 20px;
+}
+
+.signup_form > div > input {
+    background: none;
+    color: #d8831b;
+    border: none;
+    border-bottom: 3px solid #d8831b;
+    width: 400px;
+    padding-left: 15px;
+    padding-bottom: 5px;
+}
+
+.signup_form > div > input::placeholder {
+    color: #d8831b;
+}
+
+.signup_form > button {
+    margin-top: 10px;
+    width: 250px;
+    height: 50px;
+    color: white;
+    font-size: 20px;
+    border: 3px solid #d8831b;
+    border-radius: 15px;
+    background-color: #FBAE42;
+}
+
+.signup_form > button:hover {
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: #d8831b;
+}

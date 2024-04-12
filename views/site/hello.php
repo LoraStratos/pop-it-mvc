@@ -1,1 +1,2 @@
-<h2><?= $message ?? ''; ?></h2>
+<h2 style="color: #d8831b"><?= $message ?? ''; ?></h2>
+

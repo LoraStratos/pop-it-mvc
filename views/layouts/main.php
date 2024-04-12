@@ -8,28 +8,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/pop-it-mvc/public/css/login.css">
     <link rel="stylesheet" href="/pop-it-mvc/public/css/main.css">
+    <link rel="stylesheet" href="/pop-it-mvc/public/css/signup.css">
     <title>Библиотека</title>
 </head>
 <body>
-<header>
-<!--    <nav>-->
-<!--        <a href="--><?php //= app()->route->getUrl('/hello') ?><!--">Главная</a>-->
-<!--        --><?php
-//        if (!app()->auth::check()):
-//            ?>
-<!--            <a href="--><?php //= app()->route->getUrl('/login') ?><!--">Вход</a>-->
-<!--            <a href="--><?php //= app()->route->getUrl('/signup') ?><!--">Регистрация</a>-->
-<!--        --><?php
-//        else:
-//            ?>
-<!--            <a href="--><?php //= app()->route->getUrl('/logout') ?><!--">Выход (--><?php //= app()->auth::user()->name ?><!--)</a>-->
-<!--        --><?php
-//        endif;
-//        ?>
-<!--    </nav>-->
-</header>
 <main>
-    <?= $content ?? '' ?>
+    <div class="nav">
+        <nav>
+            <?php
+                if (app()->auth::check()):
+            ?>
+                <a href="<?= app()->route->getUrl('/hello') ?>">Главная</a>
+                <?php
+                    if (!app()->auth::checkRole()):
+                ?>
+                    <a href="<?= app()->route->getUrl('/logout') ?>">Выйти</a>
+                <?php else: ?>
+                    <a href="<?= app()->route->getUrl('/signup') ?>">Добавить пользователя</a>
+                    <a href="<?= app()->route->getUrl('/logout') ?>">Выйти</a>
+                <?php
+                    endif;
+                ?>
+            <?php
+                endif;
+            ?>
+        </nav>
+    </div>
+    <div>
+        <?= $content ?? '' ?>
+    </div>
 </main>
 
 </body>

@@ -1,5 +1,4 @@
 <div class="div">
-
     <form method="post" class="login_form">
         <h2>Вход</h2>
         <input type="text" name="login" placeholder="Логин">
