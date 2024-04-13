@@ -1,0 +1,103 @@
+.add_book_form > h2 {
+    color: #d8831b;
+}
+
+.add_book_form {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.add_book_form > div {
+    width: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.fio {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    gap: 20px;
+}
+
+.add_book_form > div > p {
+    color: #d8831b;
+    font-size: 20px;
+}
+
+.fio > input {
+    background: none;
+    color: #d8831b;
+    border: none;
+    border-bottom: 3px solid #d8831b;
+    width: 400px;
+    padding-left: 15px;
+    padding-bottom: 5px;
+}
+
+.fio > input::placeholder {
+    color: #d8831b;
+}
+
+.add_book_form > div > input {
+    background: none;
+    color: #d8831b;
+    border: none;
+    border-bottom: 3px solid #d8831b;
+    width: 400px;
+    padding-left: 15px;
+    padding-bottom: 5px;
+}
+
+textarea {
+    max-width: 400px;
+    max-height: 50px;
+    border: 3px solid #d8831b;
+    border-radius: 15px;
+    padding: 5px 0 0 15px;
+    color: white;
+    background-color: #FBAE42;
+}
+
+textarea::placeholder {
+    color: white;
+}
+
+.add_book_form > div > input::placeholder {
+    color: #d8831b;
+}
+
+.add_book_form > div:nth-last-child(2) > input {
+    border: none;
+    width: auto;
+    padding-bottom: 0;
+}
+
+.add_book_form > button {
+    margin-top: 10px;
+    width: 250px;
+    height: 50px;
+    color: white;
+    font-size: 20px;
+    border: 3px solid #d8831b;
+    border-radius: 15px;
+    background-color: #FBAE42;
+}
+
+.add_book_form > button:hover {
+    cursor: pointer;
+    background-color: #d8831b;
+}
+
+select {
+    width: 200px;
+    background-color: #FBAE42;
+    border-radius: 10px;
+    border: 3px solid #d8831b;
+    color: white;
+    font-size: 20px;
+}
