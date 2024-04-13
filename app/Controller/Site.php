@@ -1,7 +1,6 @@
 <?php
 namespace Controller;
 use Model\Post;
-use Model\User;
 use Src\View;
 use Src\Request;
 use Src\Auth\Auth;
@@ -14,17 +13,19 @@ class Site
         return (new View())->render('site.post', ['posts' => $posts]);
     }
 
-    public function signup(Request $request): string
-    {
-        if ($request->method === 'POST' && User::create($request->all())) {
-            app()->route->redirect('/go');
-        }
-        return new View('site.signup');
-    }
-
     public function hello(): string
     {
         return new View('site.hello', ['message' => 'Добро пожаловать в библиотеку!']);
+    }
+
+    public function book(): string
+    {
+        return new View('site.book');
+    }
+
+    public function reader(): string
+    {
+        return new View('site.reader');
     }
 
     public function login(Request $request): string

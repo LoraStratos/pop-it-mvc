@@ -1,0 +1,95 @@
+.form_search > input {
+    width: 400px;
+    border-radius: 15px;
+    border: 3px solid #d8831b;
+    background-color: #FBAE42;
+    padding: 6px 6px 6px 15px;
+    color: white;
+    font-size: 20px;
+}
+
+.form_search > input::placeholder {
+    color: white;
+    opacity: .5;
+    font-size: 20px;
+    font-weight: lighter;
+}
+
+.form_search > button {
+    margin-left: 100px;
+    border-radius: 15px;
+    border: 3px solid #d8831b;
+    background-color: #FBAE42;
+    width: 100px;
+    padding: 6px 0;
+    color: white;
+    font-size: 20px;
+}
+
+.form_search > button:hover {
+    cursor: pointer;
+    background-color: #d8831b;
+}
+
+.readers_div {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 700px;
+}
+
+.readers_div > h2 {
+    font-size: 32px;
+    color: #d8831b;
+    margin: 0;
+}
+
+.one_reader > div:first-child > p {
+    color: white;
+    font-size: 14px;
+    margin: 10px 0 0 0;
+}
+
+.one_reader > div:first-child > p:nth-child(2) {
+    font-size: 20px;
+}
+
+.one_reader > div:last-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.one_reader > div:last-child > button {
+    height: 40px;
+    width: 150px;
+    border-radius: 15px;
+    border: 3px solid #d8831b;
+    background-color: #FDC579;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.one_reader > div:last-child > button:hover {
+    background-color: #d8831b;
+    color: white;
+}
+
+.one_reader > div:last-child > button > a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
+.one_reader {
+    display: flex;
+    justify-content: space-between;
+    width: 560px;
+    border-radius: 15px;
+    border: 3px solid #d8831b;
+    background-color: #FBAE42;
+    padding: 15px 20px;
+    margin-bottom: -20px;
+}
+
