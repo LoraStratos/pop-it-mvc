@@ -57,8 +57,12 @@ main > div:nth-child(2){
     text-decoration: none;
     font-size: 20px;
     width: 250px;
-    height: 40px;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.main_list > button > a:hover {
+    color: white;
 }

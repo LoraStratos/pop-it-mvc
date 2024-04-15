@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="/pop-it-mvc/public/css/book.css">
-<div class="book_list">
+<div>
     <div class="book_div">
         <h2>Война и мир</h2>
         <div class="book_block">

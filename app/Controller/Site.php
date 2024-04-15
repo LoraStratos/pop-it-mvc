@@ -1,6 +1,7 @@
 <?php
 namespace Controller;
 use Model\Post;
+use Model\Book;
 use Src\View;
 use Src\Request;
 use Src\Auth\Auth;
@@ -21,6 +22,12 @@ class Site
     public function book(): string
     {
         return new View('site.book');
+    }
+
+    public function issuance(): string
+    {
+        $book = Book::all();
+        return new View('site.issuance', ['book' => $book]);
     }
 
     public function reader(): string
@@ -47,6 +54,7 @@ class Site
         Auth::logout();
         app()->route->redirect('/hello');
     }
+
     public function books(): string
     {
         return new View('site.books');
