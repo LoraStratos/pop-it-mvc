@@ -1,0 +1,103 @@
+.book_div > h2 {
+    color: #d8831b;
+    font-size: 32px;
+    margin: 0 0 20px 0;
+}
+
+.book_block {
+    width: 660px;
+    height: 400px;
+    border-radius: 15px;
+    border: 3px solid #d8831b;
+    background-color: #FBAE42;
+    padding: 20px;
+}
+
+.book_block > p {
+    color: white;
+    font-size: 20px;
+}
+
+.book_block > div > img {
+    width: 200px;
+    height: 280px;
+}
+
+.price {
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+}
+
+.price > p {
+    font-size: 20px;
+    margin: 0;
+}
+
+.price > p:first-child {
+    color: white;
+}
+
+.price > p:last-child {
+    font-weight: bold;
+    color: #EF3B2C;
+}
+
+.info_book > p {
+    font-size: 20px;
+    color: white;
+}
+
+.book_block > div {
+    display: flex;
+    gap: 40px;
+}
+
+.book_block > p:last-child {
+    width: 500px;
+}
+
+h3 {
+    font-size: 20px;
+    color: #d8831b;
+    margin: 20px 0;
+    width: 700px;
+    text-align: center;
+}
+
+.reader {
+    width: 660px;
+    border: 3px solid #d8831b;
+    border-radius: 15px;
+    background-color: #FBAE42;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+
+.reader > div > p {
+    color: white;
+    font-size: 14px;
+}
+
+.reader > div > p:nth-child(2) {
+    font-size: 20px;
+}
+
+.reader > div:last-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.reader > div:last-child > div {
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+}
+
+.reader > div:last-child > div > p {
+    color: white;
+    font-size: 14px;
+}

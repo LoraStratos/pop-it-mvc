@@ -14,10 +14,7 @@ main > div:nth-child(2){
 }
 
 .nav {
-    height: 720px;
-    width: 250px;
-    background-color: #FBAE42;
-    border-right: 3px solid #D8831B;
+    width: 200px;
     margin-right: 30px;
 }
 .nav > nav {
@@ -29,7 +26,8 @@ main > div:nth-child(2){
 }
 
 .nav > nav > a {
-    color: white;
+    color: #d8831b;
+    text-decoration: none;
     font-size: 20px;
     text-align: center;
 }
