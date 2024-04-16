@@ -27,7 +27,7 @@ class Site
     public function issuance(): string
     {
         $book = Book::all();
-        return new View('site.issuance', ['book' => $book]);
+        return (new View())->render('site.issuance', ['book' => $book]);
     }
 
     public function reader(): string
@@ -57,7 +57,8 @@ class Site
 
     public function books(): string
     {
-        return new View('site.books');
+        $book = Book::all();
+        return new View('site.books', ['book' => $book]);
     }
     public function readers(): string
     {

@@ -23,6 +23,7 @@
 .iss > a {
     color: white;
     font-size: 20px;
+    height: 40px;
     text-decoration: none;
     display: flex;
     width: 250px;

@@ -1,6 +1,61 @@
 h2 {
     color: #d8831b;
     font-size: 32px;
-    margin: 0;
+    margin: 0 0 20px 0;
 }
 
+.iss_form > div {
+    display: flex;
+    justify-content: space-between;
+    width: 600px;
+    align-items: center;
+}
+
+.iss_form {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    align-items: center;
+    gap: 20px;
+}
+
+.iss_form > div > p {
+    color: #d8831b;
+    font-size: 20px;
+}
+
+.iss_form > button {
+    margin-top: 20px;
+    width: 250px;
+    height: 50px;
+    color: white;
+    font-size: 20px;
+    border: 3px solid #d8831b;
+    border-radius: 15px;
+    background-color: #FBAE42;
+}
+
+.iss_form > button:hover {
+    background-color: #d8831b;
+    cursor: pointer;
+}
+
+.book_list > select {
+    width: 300px;
+    border-radius: 15px;
+    padding: 10px 15px;
+    border: 3px solid #d8831b;
+    background-color: #FBAE42;
+    color: white;
+    font-size: 20px;
+}
+
+#date {
+    width: 200px;
+    font-size: 20px;
+    color: white;
+    background-color: #FBAE42;
+    border-radius: 15px;
+    padding: 10px 15px;
+    border: 3px solid #d8831b;
+}

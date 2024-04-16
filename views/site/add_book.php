@@ -32,7 +32,7 @@
         </div>
         <div>
             <p>Обложка:</p>
-            <input type="file" accept="image/*">
+            <input type="file" accept="image/*" required>
         </div>
         <button>Добавить книгу</button>
     </form>
