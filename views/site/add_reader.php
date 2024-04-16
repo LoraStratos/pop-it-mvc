@@ -12,7 +12,7 @@
         </div>
         <div>
             <p>Номер телефона:</p>
-            <input type="tel" name="phone" placeholder="Номер телефона" required>
+            <input type="text" name="number" placeholder="Номер телефона" required>
         </div>
         <div>
             <p>Адрес проживания:</p>

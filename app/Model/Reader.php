@@ -8,5 +8,11 @@ class Reader extends Model
     use HasFactory;
     public $timestamps = false;
 
-
+    protected $fillable = [
+        'name',
+        'surname',
+        'patronymic',
+        'address',
+        'number',
+    ];
 }
