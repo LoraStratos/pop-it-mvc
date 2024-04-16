@@ -2,6 +2,7 @@
 namespace Controller;
 use Model\Post;
 use Model\Book;
+use Model\Reader;
 use Src\View;
 use Src\Request;
 use Src\Auth\Auth;
@@ -32,7 +33,8 @@ class Site
 
     public function reader(): string
     {
-        return new View('site.reader');
+        $reader = Reader::all();
+        return (new View())->render('site.reader', ['reader' => $reader]);
     }
 
     public function login(Request $request): string
@@ -62,6 +64,7 @@ class Site
     }
     public function readers(): string
     {
-        return new View('site.readers');
+        $readers = Reader::all();
+        return new View('site.readers', ['readers' => $readers]);
     }
 }
