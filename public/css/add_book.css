@@ -17,30 +17,32 @@
     justify-content: space-between;
 }
 
-.fio {
+.add {
+    width: 200px;
+    padding: 5px 10px;
+    background-color: #FBAE42;
+    border: 3px solid #d8831b;
+    border-radius: 15px;
+    margin-right: -90px;
+}
+
+.add:hover {
+    background-color: #d8831b;
+}
+
+.add > a {
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    width: 200px;
     display: flex;
-    flex-direction: column;
-    justify-content: end;
-    gap: 20px;
+    align-items: center;
+    text-align: center;
 }
 
 .add_book_form > div > p {
     color: #d8831b;
     font-size: 20px;
-}
-
-.fio > input {
-    background: none;
-    color: #d8831b;
-    border: none;
-    border-bottom: 3px solid #d8831b;
-    width: 400px;
-    padding-left: 15px;
-    padding-bottom: 5px;
-}
-
-.fio > input::placeholder {
-    color: #d8831b;
 }
 
 .add_book_form > div > input {
@@ -94,9 +96,10 @@ textarea::placeholder {
 }
 
 select {
+    padding: 5px 10px;
     width: 200px;
     background-color: #FBAE42;
-    border-radius: 10px;
+    border-radius: 15px;
     border: 3px solid #d8831b;
     color: white;
     font-size: 20px;

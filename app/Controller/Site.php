@@ -94,7 +94,7 @@ class Site
             if ($request->get('search')) {
                 $search = $request->get('search');
                 if ($search) {
-                    $readers = Reader::where('name', 'like', '%' . $search . '%')->get();
+                    $readers = Reader::where('surname', 'like', '%' . $search . '%')->get();
 
                 }
                 if ($readers->isEmpty()) {

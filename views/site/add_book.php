@@ -7,12 +7,15 @@
             <input type="text" name="title" placeholder="Название" required>
         </div>
         <div>
-            <p>Фио автора:</p>
-            <div class="fio">
-                <input type="text" name="name" placeholder="Фамилия">
-                <input type="text" name="surname" placeholder="Имя">
-                <input type="text" name="patronymic" placeholder="Отчество">
-            </div>
+            <p>Автор:</p>
+            <button class="add"><a href="<?= app()->route->getUrl('/add_author') ?>">Добавить автора</a></button>
+            <select>
+                <?php
+                foreach ($author as $author){
+                    echo "<option value=\"$author->name $author->surname\">$author->name $author->surname</option>";
+                }
+                ?>
+            </select>
         </div>
         <div>
             <p>Год издания:</p>
@@ -21,9 +24,11 @@
         <div>
             <p>Тип издания:</p>
             <select required>
-                <option selected value="Новая">Новая</option>
-                <option value="Старая">Старая</option>
-                <option value="Очень старая">Очень старая</option>
+                <?php
+                foreach ($edition as $edition){
+                    echo "<option value=\"$edition->type_edition\">$edition->type_edition</option>";
+                }
+                ?>
             </select>
         </div>
         <div>

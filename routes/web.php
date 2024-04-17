@@ -14,4 +14,5 @@ Route::add(['GET', 'POST'], '/book', [Controller\Site::class, 'book']);
 Route::add(['GET', 'POST'], '/reader', [Controller\Site::class, 'reader']);
 Route::add(['GET', 'POST'], '/add_book', [Controller\Add::class, 'add_book']);
 Route::add(['GET', 'POST'], '/add_reader', [Controller\Add::class, 'add_reader']);
+Route::add(['GET', 'POST'], '/add_author', [Controller\Add::class, 'add_author']);
 Route::add(['GET', 'POST'], '/issuance', [Controller\Site::class, 'issuance']);

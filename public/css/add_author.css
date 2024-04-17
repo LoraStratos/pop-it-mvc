@@ -1,0 +1,62 @@
+.add_author_form > h2 {
+    color: #d8831b;
+    font-size: 32px;
+    margin: 0;
+}
+
+.add_author_form {
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.add_author_form > div {
+    width: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.fio {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    gap: 20px;
+}
+
+.add_author_form > div > p {
+    color: #d8831b;
+    font-size: 20px;
+}
+
+.fio > input {
+    background: none;
+    color: #d8831b;
+    border: none;
+    border-bottom: 3px solid #d8831b;
+    width: 400px;
+    padding-left: 15px;
+    padding-bottom: 5px;
+}
+
+.fio > input::placeholder {
+    color: #d8831b;
+}
+
+button {
+    margin-top: 10px;
+    width: 250px;
+    height: 50px;
+    color: white;
+    font-size: 20px;
+    border: 3px solid #d8831b;
+    border-radius: 15px;
+    background-color: #FBAE42;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #d8831b;
+}
