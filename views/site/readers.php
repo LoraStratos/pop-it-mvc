@@ -2,10 +2,12 @@
 <div class="main_list">
 <div class="readers_div">
     <h2>Читатели</h2>
-    <form method="get" class="form_search">
-        <input type="search" placeholder="Поиск">
-        <button>Найти</button>
+    <form method="post" class="form_search">
+        <input type="text" placeholder="Поиск" name="search">
+        <button type="submit">Найти</button>
+        <button><a href="<?=app()->route->getUrl('/readers'); ?>">Сбросить</a></button>
     </form>
+    <span><?= $message ?? '';?></span>
     <?php
         foreach ($readers as $readers) {
             echo "<div class=\"one_reader\">

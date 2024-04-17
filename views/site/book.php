@@ -2,23 +2,38 @@
 <div>
     <div class="book_div">
         <h2>Война и мир</h2>
-        <div class="book_block">
-            <div>
-                <img src="/pop-it-mvc/public/media/Война и мир.jpg">
-                <div class="info_book">
-                    <p>Автор: Лев Николаевич Толстой</p>
-                    <p>Год издания: 1867 г.</p>
-                    <p>Номер копии: 1234</p>
-                    <p>Тип издания: Очень старая</p>
-                    <p>Статус книги: у читателя</p>
-                    <div class="price">
-                        <p>Цена:</p>
-                        <p>1499 руб</p>
-                    </div>
-                </div>
-            </div>
-            <p>Аннотация: <br> текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст</p>
-        </div>
+        <?php
+            $bookID = $_GET['id'] ?? null;
+            foreach ($books as $book) {
+                $author = \Model\Author::where('id', $book->author)->first();
+                $edition = \Model\Edition::where('id', $book->type_edition)->first();
+                    if ($book->id == $bookID) {
+                        echo "
+                            <div class='book_block'>
+                            <div>
+                                <img src='$book->img'>
+                                <div class='info_book'>";
+                        if ($author->patronymic != null) {
+                            echo "<p>Автор: $author->name $author->patronymic $author->surname</p>";
+                        } else {
+                            echo "<p>Автор: $author->name $author->surnanme</p>";
+                        }
+                        echo "<p>Год издания: $book->year_edition г.</p>
+                                        <p>Тип издания: $edition->type_edition</p>
+                                        <div class='price'>
+                                            <p>Цена:</p>
+                                            <p>$book->price руб</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p>Аннотация: <br>$book->annotation</p>
+                            </div>
+                        ";
+                        break;
+                        }
+            }
+        ?>
+
     </div>
     <h3>История выдачи</h3>
     <div class="reader">

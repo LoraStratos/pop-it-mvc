@@ -66,3 +66,45 @@ main > div:nth-child(2){
 .main_list > button > a:hover {
     color: white;
 }
+
+.form_search {
+    display: flex;
+    width: 600px;
+    gap: 20px;
+}
+.form_search > input {
+    width: 350px;
+    border-radius: 15px;
+    border: 3px solid #d8831b;
+    background-color: #FBAE42;
+    padding: 6px 6px 6px 15px;
+    color: white;
+    font-size: 20px;
+}
+
+.form_search > input::placeholder {
+    color: white;
+    opacity: .5;
+    font-size: 20px;
+    font-weight: lighter;
+}
+
+.form_search > button {
+    border-radius: 15px;
+    border: 3px solid #d8831b;
+    background-color: #FBAE42;
+    width: 100px;
+    padding: 6px 0;
+    color: white;
+    font-size: 20px;
+}
+
+.form_search > button > a {
+    color: white;
+    text-decoration: none;
+}
+
+.form_search > button:hover {
+    cursor: pointer;
+    background-color: #d8831b;
+}

@@ -12,14 +12,31 @@
                 <p>Номер телефона:</p>
                 <p>Адрес проживания:</p>
             </div>
-            <div>
-                <p>Иванов</p>
-                <p>Иван</p>
-                <p>Иванович</p>
-                <p>№12345</p>
-                <p>88005553535</p>
-                <p>ул.Новая д.1 кв.2</p>
-            </div>
+            <?php
+                $readerID = $_GET['id'] ?? null;
+                foreach ($reader as $reader) {
+                    if ($reader->id == $readerID) {
+                        echo "
+                        <div>
+                            <p>$reader->surname</p>
+                            <p>$reader->name</p>
+                        ";
+                        if ($reader->patronymic != null){
+                            echo "<p>$reader->patronymic</p>";
+                        } else {
+                            echo "<p>-</p>";
+                        }
+                        echo "
+                            <p>№$reader->id</p>
+                            <p>+$reader->number</p>
+                            <p>$reader->address</p>
+                        </div>    
+                        ";
+                        break;
+                    }
+                }
+            ?>
+
         </div>
         <h3>Взятые книги</h3>
         <div class="book">
