@@ -18,9 +18,9 @@
     font-size: 20px;
 }
 
-.book_block > div > img {
-    width: 200px;
-    height: 280px;
+.img {
+    width: 100px;
+    height: 130px;
 }
 
 .price {
@@ -48,7 +48,7 @@
     color: white;
 }
 
-.book_block > div {
+.book_block > div:nth-child(2) {
     display: flex;
     gap: 40px;
 }

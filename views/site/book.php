@@ -11,7 +11,7 @@
                         echo "
                             <div class='book_block'>
                             <div>
-                                <img src='$book->img'>
+                                <div class='img' style=\"background-image: url('$book->img'); background-size: 100px;\">
                                 <div class='info_book'>";
                         if ($author->patronymic != null) {
                             echo "<p>Автор: $author->name $author->patronymic $author->surname</p>";

@@ -14,7 +14,8 @@
                 $author = \Model\Author::where('id', $book->author)->first();
                     echo "
                     <div class='one_book'>
-                    <img src='$book->img'>
+                    <div style=\"background-image: url('$book->img'); background-size: 100px;\">
+                    </div>
                     <div>
                         <p>$book->title</p>
                         <p>$author->name $author->surname</p>
