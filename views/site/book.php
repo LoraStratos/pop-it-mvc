@@ -5,14 +5,16 @@
         <?php
             $bookID = $_GET['id'] ?? null;
             foreach ($books as $book) {
-                $author = \Model\Author::where('id', $book->author)->first();
-                $edition = \Model\Edition::where('id', $book->type_edition)->first();
+                $author = \Model\Author::where('id_author', $book->id_author)->first();
+                $edition = \Model\Edition::where('id_type_edition', $book->id_type_edition)->first();
                     if ($book->id == $bookID) {
                         echo "
                             <div class='book_block'>
                             <div>
-                                <div class='img' style=\"background-image: url('$book->img'); background-size: 100px;\">
+                            <div class='img' style=\"background-image: url('$book->img'); background-size: 230px;\"></div>
+                               
                                 <div class='info_book'>";
+
                         if ($author->patronymic != null) {
                             echo "<p>Автор: $author->name $author->patronymic $author->surname</p>";
                         } else {
@@ -24,10 +26,13 @@
                                             <p>Цена:</p>
                                             <p>$book->price руб</p>
                                         </div>
-                                    </div>
+                                </div>
                                 </div>
                                 <p>Аннотация: <br>$book->annotation</p>
                             </div>
+                                
+                                
+                           
                         ";
                         break;
                         }

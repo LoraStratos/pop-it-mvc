@@ -11,4 +11,6 @@ class Edition extends Model {
     protected $fillable = [
         'type_edition',
     ];
+
+    protected $primaryKey = 'id_type_edition';
 }

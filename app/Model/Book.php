@@ -13,6 +13,8 @@ class Book extends Model
         'year_edition',
         'price',
         'annotation',
+        'id_author',
+        'id_type_edition',
         'img',
     ];
 }

@@ -13,4 +13,6 @@ class Author extends Model
         'surname',
         'patronymic',
     ];
+
+    protected $primaryKey = 'id_author';
 }

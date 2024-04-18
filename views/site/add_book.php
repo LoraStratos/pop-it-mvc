@@ -9,24 +9,28 @@
         <div>
             <p>Автор:</p>
             <button class="add"><a href="<?= app()->route->getUrl('/add_author') ?>">Добавить автора</a></button>
-            <select>
+            <select name="id_author">
                 <?php
                 foreach ($author as $author){
-                    echo "<option value=\"$author->name $author->surname\">$author->name $author->surname</option>";
+                    echo "<option value=\"$author->id_author\">$author->name $author->surname</option>";
                 }
                 ?>
             </select>
         </div>
         <div>
+            <p>Цена:</p>
+            <input type="text" name="price" placeholder="Цена">
+        </div>
+        <div>
             <p>Год издания:</p>
-            <input type="text" name="year" placeholder="Год издания">
+            <input type="text" name="year_edition" placeholder="Год издания">
         </div>
         <div>
             <p>Тип издания:</p>
-            <select required>
+            <select name="id_type_edition" required>
                 <?php
                 foreach ($edition as $edition){
-                    echo "<option value=\"$edition->type_edition\">$edition->type_edition</option>";
+                    echo "<option value=\"$edition->id_type_edition\">$edition->type_edition</option>";
                 }
                 ?>
             </select>
@@ -37,8 +41,8 @@
         </div>
         <div>
             <p>Обложка:</p>
-            <input type="file" accept="image/*" required>
+            <input type="file" name="img" accept="image/*">
         </div>
-        <button>Добавить книгу</button>
+        <button type="submit">Добавить книгу</button>
     </form>
 </div>

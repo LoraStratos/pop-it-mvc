@@ -11,7 +11,7 @@
         <?php
             $bookID = $_GET['id'] ?? null;
             foreach ($book as $book) {
-                $author = \Model\Author::where('id', $book->author)->first();
+                $author = \Model\Author::where('id_author', $book->id_author)->first();
                     echo "
                     <div class='one_book'>
                     <div style=\"background-image: url('$book->img'); background-size: 100px;\">
