@@ -2,7 +2,7 @@
 namespace Controller;
 use Model\Book;
 use Model\Author;
-use Model\Img;
+use Model\Image;
 use Model\Edition;
 use Model\Reader;
 use Src\View;
@@ -14,7 +14,6 @@ class Add {
     {
         $author = Author::all();
         $edition = Edition::all();
-        $img = Img::all();
         if ($request->method === 'POST') {
             {
                 $data = $request->all();
@@ -56,21 +55,19 @@ class Add {
 
     public function pictures(Request $request): string
     {
-        $img = Img::all();
+        $image = Image::all();
 
-//        if ($request->method === 'POST') {
-//            $img = $_FILES['path']['name'];
-//            $imgPath = $_SERVER['DOCUMENT_ROOT'] . "/pop-it-mvc/public/img/";
-//            $uploaded_file = $imgPath . basename($img);
-//            move_uploaded_file($_FILES['path']['tmp_name'], $uploaded_file);
+        if ($request->method === 'POST') {
+            $image = $_FILES['image']['name'];
+            $imagePath = $_SERVER['DOCUMENT_ROOT'] . "/pop-it-mvc/public/media/";
+            $uploaded_file = $imagePath . basename($image);
+            move_uploaded_file($_FILES['image']['tmp_name'], $uploaded_file);
 
-//            if (Img::create(['path' => $uploaded_file, 'name' => $img])) {
-//                app()->route->redirect('/pictures');
-//            }
-//        }
+            if (Image::create(['image' => $uploaded_file, 'name' => $image])) {
+                app()->route->redirect('/pictures');
+            }
+        }
 
-
-
-        return (new View())->render('site.img', ['img' => $img]);
+        return (new View())->render('site.img', ['image' => $image]);
     }
 }

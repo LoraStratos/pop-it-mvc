@@ -6,9 +6,9 @@
         <button type="submit">Загрузить изображение</button>
     </form>
 
-    <?php if($img->isNotEmpty()){
-        foreach ($img as $img) {
-            echo "<img src='/pop-it-mvc/public/img/$img->name'>";
+    <?php if($image->isNotEmpty()){
+        foreach ($image as $image) {
+            echo "<img src='/pop-it-mvc/public/media/$image->name'>";
         }
     }
     ?>

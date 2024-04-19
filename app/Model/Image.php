@@ -3,13 +3,15 @@ namespace Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Img extends Model
+class Image extends Model
 {
     use HasFactory;
     public $timestamps = false;
 
     protected $fillable = [
-        'path',
+        'image',
         'name'
     ];
+
+    public $table = 'imgs';
 }
