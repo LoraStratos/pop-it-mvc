@@ -39,10 +39,6 @@
             <p>Аннотация:</p>
             <textarea cols="50" rows="3" name="annotation" placeholder="Краткое описание книги"></textarea>
         </div>
-        <div>
-            <p>Обложка:</p>
-            <input type="file" name="img" accept="image/*">
-        </div>
-        <button type="submit">Добавить книгу</button>
+        <button>Добавить книгу</button>
     </form>
 </div>

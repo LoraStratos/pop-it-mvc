@@ -22,6 +22,7 @@
                 ?>
                     <a href="<?= app()->route->getUrl('/books') ?>">Книги</a>
                     <a href="<?= app()->route->getUrl('/readers') ?>">Читатели</a>
+                    <a href="<?= app()->route->getUrl('/pictures') ?>">Картинки</a>
                     <a href="<?= app()->route->getUrl('/logout') ?>">Выйти</a>
                 <?php else: ?>
                     <a href="<?= app()->route->getUrl('/signup') ?>">Добавить пользователя</a>

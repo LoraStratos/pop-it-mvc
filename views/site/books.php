@@ -9,22 +9,19 @@
     </form>
     <span><?= $message ?? '';?></span>
         <?php
-            $bookID = $_GET['id'] ?? null;
             foreach ($book as $book) {
                 $author = \Model\Author::where('id_author', $book->id_author)->first();
                     echo "
                     <div class='one_book'>
-                    <div style=\"background-image: url('$book->img'); background-size: 100px;\">
-                    </div>
-                    <div>
-                        <p>$book->title</p>
-                        <p>$author->name $author->surname</p>
-                        <p>$book->year_edition г.</p>
-                    </div>
-                    <div>
-                        <p>$book->price руб.</p>
-                        <button><a href='" . app()->route->getUrl('/book?id=' . $book->id) . "'>Подробнее</a></button>
-                    </div>
+                            <div>
+                                <p>$book->title</p>
+                                <p>$author->name $author->surname</p>
+                                <p>$book->year_edition г.</p>
+                            </div>
+                        <div>
+                            <p>$book->price руб.</p>
+                            <button><a href='" . app()->route->getUrl('/book?id=' . $book->id) . "'>Подробнее</a></button>
+                        </div>
                     </div>
                 ";
 

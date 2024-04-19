@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="/pop-it-mvc/public/css/book.css">
 <div>
     <div class="book_div">
-        <h2>Война и мир</h2>
+
         <?php
             $bookID = $_GET['id'] ?? null;
             foreach ($books as $book) {
@@ -9,10 +9,9 @@
                 $edition = \Model\Edition::where('id_type_edition', $book->id_type_edition)->first();
                     if ($book->id == $bookID) {
                         echo "
+                            <h2>$book->title</h2>
                             <div class='book_block'>
-                            <div>
-                            <div class='img' style=\"background-image: url('$book->img'); background-size: 230px;\"></div>
-                               
+                                <div>
                                 <div class='info_book'>";
 
                         if ($author->patronymic != null) {
