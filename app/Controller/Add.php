@@ -1,10 +1,14 @@
 <?php
 namespace Controller;
 use Model\Book;
+use Model\Issuance;
+use Model\User;
+use Src\Auth\Auth;
 use Model\Author;
 use Model\Image;
 use Model\Edition;
 use Model\Reader;
+use Src\Session;
 use Src\View;
 use Src\Request;
 
@@ -69,5 +73,26 @@ class Add {
         }
 
         return (new View())->render('site.img', ['image' => $image]);
+    }
+
+    public function issuance(Request $request): string
+    {
+        $book = Book::all();
+
+        if ($request->method === 'POST') {
+            $id_data = $request->id;
+            $data = $request->all();
+            $book = Book::find($data['book']);
+                Issuance::create([
+                   'librarian' => Session::get('id') ?? 0,
+                   'reader' => $id_data,
+                   'book' => $data['book'],
+                   'date_of_issue' => date('Y.m.d'),
+                   'return_date' => $data['date']
+                ]);
+                app()->route->redirect('/reader?id='.$id_data);
+        }
+
+        return (new View())->render('site.issuance', ['book' => $book]);
     }
 }

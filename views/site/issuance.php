@@ -1,14 +1,14 @@
 <link rel="stylesheet" href="/pop-it-mvc/public/css/issuance.css">
 <div>
-    <form class="iss_form">
+    <form class="iss_form" method="post">
         <h2>Выдача книги</h2>
         <div>
             <p>Книга:</p>
             <div class="book_list">
-                <select>
+                <select name="book">
                     <?php
                     foreach ($book as $book){
-                        echo "<option value=\"$book->title\">$book->title</option>";
+                        echo "<option value=\"$book->id\">$book->title</option>";
                     }
                     ?>
                 </select>
@@ -16,7 +16,7 @@
         </div>
         <div>
             <p>Дата возврата:</p>
-            <input type="date" id="date">
+            <input type="date" id="date" name="date" required>
         </div>
         <button>Выдать книгу</button>
     </form>

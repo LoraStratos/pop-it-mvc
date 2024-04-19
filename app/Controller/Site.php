@@ -30,11 +30,6 @@ class Site
         return (new View())->render('site.book', ['books' => $books, 'author' => $author, 'edition' => $edition]);
     }
 
-    public function issuance(): string
-    {
-        $book = Book::all();
-        return (new View())->render('site.issuance', ['book' => $book]);
-    }
 
     public function reader(): string
     {

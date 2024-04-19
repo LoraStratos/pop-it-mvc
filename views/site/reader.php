@@ -40,7 +40,6 @@
         </div>
         <h3>Взятые книги</h3>
         <div class="book">
-            <img src="/pop-it-mvc/public/media/Война и мир.jpg">
             <div>
                 <p>Война и мир</p>
                 <p>Л.Н. Толстой</p>
@@ -51,30 +50,22 @@
                     <p>25.12.23</p>
                 </div>
                 <div>
-                    <p>Сдана:</p>
-                    <button class="return"><a href="#">Вернуть</a></button>
-                </div>
-            </div>
-        </div>
-        <div class="book">
-            <img src="/pop-it-mvc/public/media/Война и мир.jpg">
-            <div>
-                <p>Война и мир</p>
-                <p>Л.Н. Толстой</p>
-            </div>
-            <div>
-                <div>
-                    <p>Выдана:</p>
+                    <p>Должны вернуть:</p>
                     <p>25.12.23</p>
                 </div>
                 <div>
                     <p>Сдана:</p>
-                    <button class="return"><a href="#">Вернуть</a></button>
+                    <button class="return">Вернуть</button>
                 </div>
             </div>
         </div>
     </div>
     <div>
-        <button class="iss"><a href="<?= app()->route->getUrl('/issuance') ?>">Выдать книгу</a></button>
+        <?php
+            $readerID = $_GET['id'] ?? null;
+                if ($reader->id == $readerID) {
+                    echo "<button class='iss'><a href='" . app()->route->getUrl('/issuance?id=' . $reader->id) . "'>Выдать книгу</a></button>";
+                }
+        ?>
     </div>
 </div>

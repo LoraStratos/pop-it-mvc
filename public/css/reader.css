@@ -67,17 +67,12 @@ h3 {
     text-align: center;
 }
 
-.book > img {
-    width: 80px;
-    height: 110px;
-}
-
 .book {
     background-color: #FBAE42;
     border: 3px solid #d8831b;
     border-radius: 15px;
     display: flex;
-    gap: 20px;
+    justify-content: space-between;
     padding: 10px 20px;
     width: 600px;
     margin-bottom: 20px;
@@ -94,7 +89,7 @@ h3 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 200px;
+    width: 300px;
 }
 
 .book > div > p {
@@ -120,25 +115,13 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.return > a {
-    text-decoration: none;
-    text-align: center;
     color: #d8831b;
     font-size: 14px;
     font-weight: bold;
-    width: 100px;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .return:hover {
     cursor: pointer;
     background-color: #d8831b;
-}
-.return > a:hover {
     color: white;
 }

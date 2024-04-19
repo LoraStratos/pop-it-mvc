@@ -15,5 +15,8 @@ class Issuance extends Model {
         'date_of_issue',
         'return_date',
         'actual_date',
+        'id_status'
     ];
+
+    public $table = 'book_issuance';
 }
