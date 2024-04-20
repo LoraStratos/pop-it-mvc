@@ -86,7 +86,7 @@ h3 {
 .reader > div:last-child > div {
     display: flex;
     justify-content: space-between;
-    width: 200px;
+    width: 350px;
 }
 
 .reader > div:last-child > div > p {

@@ -1,6 +1,8 @@
 <?php
 namespace Controller;
 use Model\Post;
+use Model\Issuance;
+use Model\Statuses;
 use Model\Edition;
 use Model\Book;
 use Model\Author;
@@ -22,18 +24,24 @@ class Site
         return new View('site.hello', ['message' => 'Добро пожаловать в библиотеку!']);
     }
 
-    public function book(): string
+    public function book(Request $request): string
     {
-        $edition = Edition::all();
-        $books = Book::all();
-        $author = Author::all();
-        return (new View())->render('site.book', ['books' => $books, 'author' => $author, 'edition' => $edition]);
+        $book = Book::where('id', $request->get('id'))->first();
+
+        return (new View())->render('site.book', ['book' => $book]);
     }
 
 
-    public function reader(): string
+    public function reader(Request $request): string
     {
-        $reader = Reader::all();
+        $reader = Reader::where('id', $request->get('id'))->first();
+        if ($request->method === 'POST') {
+            Issuance::where('id', $request->get('issuance_id'))->first()->update([
+                'actual_date' => date('Y.m.d'),
+                'id_status' => 1
+            ]);
+            app()->route->redirect('/reader?id=' . $reader->id);
+        }
         return (new View())->render('site.reader', ['reader' => $reader]);
     }
 

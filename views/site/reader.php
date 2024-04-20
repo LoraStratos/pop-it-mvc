@@ -13,9 +13,6 @@
                 <p>Адрес проживания:</p>
             </div>
             <?php
-                $readerID = $_GET['id'] ?? null;
-                foreach ($reader as $reader) {
-                    if ($reader->id == $readerID) {
                         echo "
                         <div>
                             <p>$reader->surname</p>
@@ -32,40 +29,55 @@
                             <p>$reader->address</p>
                         </div>    
                         ";
-                        break;
-                    }
-                }
             ?>
 
         </div>
         <h3>Взятые книги</h3>
-        <div class="book">
-            <div>
-                <p>Война и мир</p>
-                <p>Л.Н. Толстой</p>
-            </div>
-            <div>
-                <div>
-                    <p>Выдана:</p>
-                    <p>25.12.23</p>
-                </div>
-                <div>
-                    <p>Должны вернуть:</p>
-                    <p>25.12.23</p>
-                </div>
-                <div>
-                    <p>Сдана:</p>
-                    <button class="return">Вернуть</button>
-                </div>
-            </div>
-        </div>
+        <?php
+            foreach ($reader->issuances as $issuance) {
+                $book = $issuance->getBook;
+                $fullNameAuthor = $book->getAuthor->name . ' ' . $book->getAuthor->surname;
+                $status = $issuance->getStatuses;
+                echo "
+                        <div class='book'>
+                            <div>
+                                <p>$book->title</p>
+                                <p>$fullNameAuthor</p>
+                                <p>$status->name</p>
+                            </div>
+                            <div>
+                                <div>
+                                    <p>Выдана:</p>
+                                    <p>$issuance->date_of_issue</p>
+                                </div>
+                                <div>
+                                    <p>Должны вернуть:</p>
+                                    <p>$issuance->return_date</p>
+                                </div>
+                                <div>
+                                    <p>Сдана:</p>";
+                                    if ($issuance->id_status == 2) {
+                                        echo "
+                                            <form method='post'>
+                                                <button class='return' value='{$issuance->id}' name='issuance_id'>Вернуть</button>
+                                            </form>
+                                        ";
+                                    } else {
+                                        echo "<p>$issuance->actual_date</p>";
+                                    }
+                                    echo "
+                                </div>
+                            </div>
+                        </div>
+                    ";
+            }
+
+        ?>
+
     </div>
     <div>
         <?php
-            $readerID = $_GET['id'] ?? null;
-                if ($reader->id == $readerID) {
-                    echo "<button class='iss'><a href='" . app()->route->getUrl('/issuance?id=' . $reader->id) . "'>Выдать книгу</a></button>";
-                }
+            echo "<button class='iss'><a href='" . app()->route->getUrl('/issuance?id=' . $reader->id) . "'>Выдать книгу</a></button>";
         ?>
     </div>
 </div>

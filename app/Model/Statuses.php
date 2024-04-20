@@ -12,5 +12,7 @@ class Statuses extends Model {
         'name'
     ];
 
+
+
     public $table = 'statuses';
 }

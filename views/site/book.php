@@ -3,75 +3,74 @@
     <div class="book_div">
 
         <?php
-            $bookID = $_GET['id'] ?? null;
-            foreach ($books as $book) {
-                $author = \Model\Author::where('id_author', $book->id_author)->first();
-                $edition = \Model\Edition::where('id_type_edition', $book->id_type_edition)->first();
-                    if ($book->id == $bookID) {
-                        echo "
-                            <h2>$book->title</h2>
-                            <div class='book_block'>
-                                <div>
-                                <div class='info_book'>";
-
-                        if ($author->patronymic != null) {
-                            echo "<p>Автор: $author->name $author->patronymic $author->surname</p>";
-                        } else {
-                            echo "<p>Автор: $author->name $author->surnanme</p>";
-                        }
-                        echo "<p>Год издания: $book->year_edition г.</p>
-                                        <p>Тип издания: $edition->type_edition</p>
-                                        <div class='price'>
-                                            <p>Цена:</p>
-                                            <p>$book->price руб</p>
-                                        </div>
-                                </div>
-                                </div>
-                                <p>Аннотация: <br>$book->annotation</p>
-                            </div>
-                                
-                                
-                           
-                        ";
-                        break;
-                        }
-            }
+                    $author = $book->getAuthor;
+                    $edition = $book->getEdition;
+                    $fullNameAuthor = $author->name . ' ' . $author->patronymic . ' ' . $author->surname;
+                    $notFullNameAuthor = $author->name . ' ' . $author->surname;
+                    echo "
+                         <h2>$book->title</h2>
+                         <div class='book_block'>
+                             <div>
+                             <div class='info_book'>";
+                    if ($author->patronymic != null) {
+                        echo "<p>Автор: $fullNameAuthor</p>";
+                    } else {
+                        echo "<p>Автор: $notFullNameAuthor</p>";
+                    }
+                    echo "<p>Год издания: $book->year_edition г.</p>
+                             <p>Тип издания: $edition->type_edition</p>
+                             <div class='price'>
+                                 <p>Цена:</p>
+                                 <p>$book->price руб</p>
+                             </div>
+                     </div>
+                     </div>
+                     <p>Аннотация: <br>$book->annotation</p>
+                 </div>
+             ";
         ?>
 
     </div>
     <h3>История выдачи</h3>
-    <div class="reader">
-        <div>
-            <p>Читательский билет №12345</p>
-            <p>Иванов Иван Иванович</p>
-            <p>+8(000) 000-00-00</p>
-        </div>
-        <div>
-            <div>
-                <p>Выдана:</p>
-                <p>25.12.23</p>
+
+    <?php
+        foreach ($book->issuances as $issuance) {
+            if ($issuance->id_status == 1 || $issuance->id_status == 3) {
+                $reader = $issuance->getReader;
+                $fullNameReader = $reader->name . ' ' . $reader->patronymic . ' ' . $reader->surname;
+                $notFullNameReader = $reader->name . ' ' . $reader->surname;
+                echo "
+                <div class='reader'>
+                <div>
+                    <p>Читательский билет №$reader->id</p>";
+                if ($reader->patronymic != null) {
+                    echo "<p>$fullNameReader</p>";
+                } else {
+                    echo "<p>$notFullNameReader</p>";
+                }
+                echo "
+                    <p>+$reader->number</p>
+                </div>
+                <div>
+                    <div>
+                        <p>Выдана:</p>
+                        <p>$issuance->date_of_issue</p>
+                    </div>
+                    <div>
+                        <p>Должны вернуть:</p>
+                        <p>$issuance->return_date</p>
+                    </div>
+                    <div>
+                        <p>Сдана:</p>
+                        <p>$issuance->actual_date</p>
+                    </div>
+                </div>
             </div>
-            <div>
-                <p>Сдана:</p>
-                <p>01.01.24</p>
-            </div>
-        </div>
-    </div>
-    <div class="reader">
-        <div>
-            <p>Читательский билет №12345</p>
-            <p>Иванов Иван Иванович</p>
-            <p>+8(000) 000-00-00</p>
-        </div>
-        <div>
-            <div>
-                <p>Выдана:</p>
-                <p>25.12.23</p>
-            </div>
-            <div>
-                <p>Сдана:</p>
-                <p>01.01.24</p>
-            </div>
-        </div>
-    </div>
+            ";
+            }
+        }
+    ?>
+
+
+
 </div>

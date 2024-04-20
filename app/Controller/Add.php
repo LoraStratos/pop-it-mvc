@@ -2,8 +2,6 @@
 namespace Controller;
 use Model\Book;
 use Model\Issuance;
-use Model\User;
-use Src\Auth\Auth;
 use Model\Author;
 use Model\Image;
 use Model\Edition;
