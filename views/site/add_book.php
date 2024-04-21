@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="/pop-it-mvc/public/css/add_book.css">
 <div class="add_book_div">
     <form enctype="multipart/form-data" method="post" class="add_book_form">
+        <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
         <h2>Добавление новой книги</h2>
         <div>
             <p>Название:</p>
@@ -9,7 +10,7 @@
         <div>
             <p>Автор:</p>
             <button class="add"><a href="<?= app()->route->getUrl('/add_author') ?>">Добавить автора</a></button>
-            <select name="id_author">
+            <select name="id_author" required>
                 <?php
                 foreach ($author as $author){
                     echo "<option value=\"$author->id_author\">$author->name $author->surname</option>";
@@ -23,7 +24,7 @@
         </div>
         <div>
             <p>Год издания:</p>
-            <input type="text" name="year_edition" placeholder="Год издания">
+            <input type="text" name="year_edition" placeholder="Год издания" required>
         </div>
         <div>
             <p>Тип издания:</p>
@@ -40,5 +41,6 @@
             <textarea cols="50" rows="3" name="annotation" placeholder="Краткое описание книги"></textarea>
         </div>
         <button>Добавить книгу</button>
+        <h3><?= $message ?? ''; ?></h3><br>
     </form>
 </div>

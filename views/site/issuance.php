@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="/pop-it-mvc/public/css/issuance.css">
 <div>
     <form class="iss_form" method="post">
+        <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
         <h2>Выдача книги</h2>
         <div>
             <p>Книга:</p>

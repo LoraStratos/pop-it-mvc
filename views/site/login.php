@@ -1,6 +1,8 @@
 <link rel="stylesheet" href="/pop-it-mvc/public/css/login.css">
 <div class="div">
+
     <form method="post" class="login_form">
+        <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
         <h2>Вход</h2>
         <input type="text" name="login" placeholder="Логин">
         <input type="password" name="password" placeholder="Пароль">

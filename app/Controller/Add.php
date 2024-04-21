@@ -7,6 +7,7 @@ use Model\Image;
 use Model\Edition;
 use Model\Reader;
 use Src\Session;
+use Src\Validator\Validator;
 use Src\View;
 use Src\Request;
 
@@ -17,7 +18,6 @@ class Add {
         $author = Author::all();
         $edition = Edition::all();
         if ($request->method === 'POST') {
-            {
                 $data = $request->all();
                 $author = Author::find($data['id_author']);
                 $edition = Edition::find($data['id_type_edition']);
@@ -33,14 +33,31 @@ class Add {
                     app()->route->redirect('/add_book');
                 }
             }
-        }
+
         return (new View())->render('site.add_book', ['author' => $author, 'edition' => $edition]);
     }
 
     public function add_reader(Request $request): string
     {
-        if ($request->method === 'POST' && Reader::create($request->all())) {
-            return new View('site.add_reader');
+        if ($request->method === 'POST') {
+
+            $validator = new Validator($request->all(), [
+                'surname' => ['required:readers,surname'],
+                'name' => ['required:readers,name'],
+                'number' => ['required:readers,number'],
+                'address' => ['required:readers,address']
+            ], [
+                'required' => 'Поле :field обязательно'
+            ]);
+
+            if($validator->fails()) {
+                return new View('site.add_reader',
+                    ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
+            }
+
+            if (Reader::create($request->all())) {
+                app()->route->redirect('/add_reader');
+            }
         }
 
         return new View('site.add_reader');
@@ -48,8 +65,22 @@ class Add {
 
     public function add_author(Request $request): string
     {
-        if ($request->method === 'POST' && Author::create($request->all())) {
-            return new View('site.add_author');
+        if ($request->method === 'POST') {
+            $validator = new Validator($request->all(), [
+                'surname' => ['required:authors,surname'],
+                'name' => ['required:authors,name']
+            ], [
+                'required' => 'Поле :field обязательно'
+            ]);
+
+            if($validator->fails()) {
+                return new View('site.add_author',
+                    ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
+            }
+
+            if(Author::create($request->all())) {
+                app()->route->redirect('/add_author');
+            }
         }
 
         return new View('site.add_author');

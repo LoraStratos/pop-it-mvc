@@ -52,3 +52,8 @@
     cursor: pointer;
     background-color: #d8831b;
 }
+
+h3 {
+    font-size: 20px;
+    color: #d8831b;
+}
